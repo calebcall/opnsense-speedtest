@@ -62,12 +62,4 @@ class ServiceController extends ApiControllerBase
         return (new Backend())->configdRun("speedtest deletelog");
     }    
 
-    public function installhttpAction()
-    {
-        return (new Backend())->configdRun("speedtest install-http");
-    }    
-    public function installsocketAction()
-    {
-        return (new Backend())->configdRun("speedtest install-socket");
-    }
 }

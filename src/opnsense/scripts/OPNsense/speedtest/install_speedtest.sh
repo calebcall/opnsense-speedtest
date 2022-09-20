@@ -21,17 +21,4 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-if [ $1 = 'http' ] 
-then 
-  pkg delete -y speedtest
-  pkg install -f -y py37-speedtest-cli
-elif [ $1 = 'socket' ] 
-then 
-  pkg delete -y py37-speedtest-cli
-  pkg install -y libidn2
-  pkg add -f "https://bintray.com/ookla/download/download_file?file_path=ookla-speedtest-1.0.0-freebsd.pkg"
-elif [ $1 = 'delete' ]
-then
-  pkg delete -y speedtest
-  pkg delete -y py37-speedtest-cli
-fi
+pkg add -f "https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-freebsd13-x86_64.pkgg"
