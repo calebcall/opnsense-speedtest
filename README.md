@@ -3,11 +3,15 @@ speedtest plugin for OPNsense
 
 ## install
 ```
-sudo pkg add https://github.com/mihakralj/opnsense-speedtest/raw/main/work/pkg/os-speedtest-devel-0.8_1.txz
+sudo pkg add https://github.com/calebcall/opnsense-speedtest/raw/main/work/pkg/os-speedtest-0.9_1.pkg
 ```
 
 ## remove
-`sudo pkg delete os-speedtest-devel`
+`sudo pkg delete os-speedtest`
+
+### Version 0.9_1
+- removed option to install speedtest-cli, only supporting ookla speedtest
+- updated to support OPNsense 22.7 (FreeBSD 13)
 
 ### Version 0.7_1
 - removed automatic invocation of install_speedtest.sh from GUI
