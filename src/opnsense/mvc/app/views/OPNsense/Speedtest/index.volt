@@ -75,10 +75,8 @@
                 </tr>
                 <tr>
                     <div id="checkingspeedtest">&nbsp;&nbsp;Locating speedtest module...</div>
-                    <div id="nospeedtest" style="display:none">&nbsp;&nbsp;No installed speedtest modules found. Install 
-                        <button class="btn btn-xs btn-primary" id="cliAct" type="button"><b>speedtest-cli</b><i id="cliAct_progress"></i></button>
-                    or 
-                        <button class="btn btn-xs btn-primary" id="binAct" type="button"><b>Ookla</b><i id="binAct_progress"></i></button>
+                    <div id="nospeedtest" style="display:none">&nbsp;&nbsp;No installed speedtest modules found. Install                         
+                        <button class="btn btn-xs btn-primary" id="binAct" type="button"><b>Ookla Sppedtest</b><i id="binAct_progress"></i></button>
                     </div>
                 </tr>
             </thead>
@@ -125,13 +123,6 @@
     <a href="/ui/cron"><button class="btn btn-xs btn-primary" id="cronAct" type="button">
             <b> schedule in cron </b>
     </button></a>
-    <button id="cli1Act" class="btn btn-xs" type="button">
-        <b>switch to http speedtest</b>
-    </button>
-    <button id="bin1Act" class="btn btn-xs" type="button">
-        <b>switch to socket speedtest</b>
-    </button><br>
-
 </div>
 
 <div class="content-box" id="logs">
@@ -203,17 +194,7 @@
             } else {
                 $('#canruntests').show();
                 $('#version').text(l.message);
-                if (l.version=='binary') {
-                    $('#bin1Act').addClass('btn-success disabled')
-                    $('#bin1Act').removeClass('btn-primary')
-                    $('#cli1Act').removeClass('btn-success disabled')
-                    $('#cli1Act').addClass('btn-primary')
-                } else {
-                    $('#cli1Act').addClass('btn-success disabled')
-                    $('#cli1Act').removeClass('btn-primary')
-                    $('#bin1Act').removeClass('btn-success disabled')
-                    $('#bin1Act').addClass('btn-primary')
-                }
+            
                 
                 ajaxCall(url = "/api/speedtest/service/serverlist", sendData = {}, callback = function(l, status) {
                     $('#speedlist').text("")
@@ -234,34 +215,13 @@
     });
     $(function() {
         // pressing button
-        $("#cliAct").click(function() {
-            ajaxCall(url = "/api/speedtest/service/installhttp/", sendData = {}, callback = function(r, status) {
-                version_reload();
-                $('#nospeedtest').hide();
-                $('#canruntests').show();
-            });
-        });
         $("#binAct").click(function() {
-            ajaxCall(url = "/api/speedtest/service/installsocket/", sendData = {}, callback = function(r, status) {
+            ajaxCall(url = "/api/speedtest/service/install/", sendData = {}, callback = function(r, status) {
                 version_reload();
                 $('#nospeedtest').hide();
                 $('#canruntests').show();
             });
-        });
-        $("#cli1Act").click(function() {
-            ajaxCall(url = "/api/speedtest/service/installhttp/", sendData = {}, callback = function(r, status) {
-                version_reload();
-                $('#nospeedtest').hide();
-                $('#canruntests').show();
-            });
-        });
-        $("#bin1Act").click(function() {
-            ajaxCall(url = "/api/speedtest/service/installsocket/", sendData = {}, callback = function(r, status) {
-                version_reload();
-                $('#nospeedtest').hide();
-                $('#canruntests').show();
-            });
-        });
+        });        
         $("#reportAct").click(function() {
             $("#reportAct_progress").addClass("fa fa-spinner fa-pulse");
             ajaxCall(url = "/api/speedtest/service/run/" + $('#speedlist').val(), sendData = {}, callback = function(r, status) {

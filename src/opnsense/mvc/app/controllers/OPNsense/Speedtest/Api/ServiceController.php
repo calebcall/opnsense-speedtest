@@ -60,6 +60,10 @@ class ServiceController extends ApiControllerBase
     public function deletelogAction()
     {
         return (new Backend())->configdRun("speedtest deletelog");
-    }    
+    }  
+    public function installAction()
+    {
+        return (new Backend())->configdRun("speedtest install");
+    }  
 
 }
