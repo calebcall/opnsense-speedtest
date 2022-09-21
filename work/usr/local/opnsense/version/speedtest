@@ -1,0 +1,11 @@
+{
+    "product_abi": "22.7",
+    "product_arch": "amd64",
+    "product_email": "calebcall@pm.me",
+    "product_flavour": "OpenSSL",
+    "product_hash": "2742b1ef1",
+    "product_id": "os-speedtest",
+    "product_name": "speedtest",
+    "product_version": "0.9_1",
+    "product_website": "https://opnsense.org/"
+}

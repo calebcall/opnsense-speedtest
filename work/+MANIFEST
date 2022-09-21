@@ -1,0 +1,12 @@
+name: os-speedtest
+version: "0.9_1"
+origin: opnsense/os-speedtest
+comment: "OPNsense plugin for speedtest"
+maintainer: "calebcall@pm.me"
+categories: [ "devel" ]
+www: "https://opnsense.org/"
+prefix: "/usr/local"
+licenselogic: "single"
+licenses: [ "BSD2CLAUSE" ]
+deps: {
+}
