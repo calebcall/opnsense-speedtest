@@ -1,5 +1,5 @@
 # opnsense-speedtest
-speedtest plugin for OPNsense
+Ookla speedtest plugin for OPNsense
 
 ## install
 ```
