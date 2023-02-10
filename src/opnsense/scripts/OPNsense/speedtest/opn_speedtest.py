@@ -72,6 +72,9 @@ try:
         header = next(data)
         for row in data:
             #from timestamp to visual form
+            local_now = datetime.datetime.now()
+            utc_now = datetime.datetime.utcnow()
+            localtimezone = datetime.timezone(local_now - utc_now)
             row[0]=datetime.fromtimestamp(float(row[0])).isoformat()
             array.append(row)
         array=sorted(array, reverse=True)
